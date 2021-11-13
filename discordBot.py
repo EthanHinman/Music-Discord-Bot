@@ -21,6 +21,7 @@ async def leave(message):
     await message.delete()
 
 async def mute(message): 
+    
     voice_client = message.guild.voice_client
     if not voice_client:
         await message.channel.send("Please join a VC before trying to mute me.")
@@ -39,7 +40,8 @@ async def unmute(message):
 if __name__ == '__main__':
     
     client = discord.Client()
-
+    #[<Member id=908858713073393726 name='All Hail Mort' discriminator='4225' 
+    # bot=True nick=None guild=<Guild id=535143514581762058 name='Home' shard_id=None chunked=False member_count=42>>]
     @client.event
     async def on_ready():
         print('We have logged in as {0.user}'.format(client)) # log in
@@ -63,15 +65,14 @@ if __name__ == '__main__':
             await message.delete()
 
         elif message.content.startswith('>mute'):
-            print(client.user.name)
-            await client.user.edit(mute=True)
-            #await mute(message)
+            botMember = client.get_guild(id = 535143514581762058).get_member(user_id =908858713073393726)
+            await botMember.edit(mute = True)
             await message.channel.send("I will not talk now.")
             await message.delete()
         elif message.content.startswith('>unmute'):
-            await client.user.edit(mute=False)
-            #await unmute(message)
-            await message.channel.send("I will now talk.")  
+            botMember = client.get_guild(id = 535143514581762058).get_member(user_id =908858713073393726)
+            await botMember.edit(mute = False)
+            await message.channel.send("I will talk now.")
             await message.delete()
         elif message.content.startswith('>leave'):
             await leave(message)
