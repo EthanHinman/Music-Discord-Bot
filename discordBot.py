@@ -40,8 +40,7 @@ async def unmute(message):
 if __name__ == '__main__':
     
     client = discord.Client()
-    #[<Member id=908858713073393726 name='All Hail Mort' discriminator='4225' 
-    # bot=True nick=None guild=<Guild id=535143514581762058 name='Home' shard_id=None chunked=False member_count=42>>]
+   
     @client.event
     async def on_ready():
         print('We have logged in as {0.user}'.format(client)) # log in
@@ -80,4 +79,4 @@ if __name__ == '__main__':
 
 
 
-    client.run('OTA4ODU4NzEzMDczMzkzNzI2.YY72og.XuKIhv6kigBAXBMSAVKnl5tVGbw')
+    client.run('Token Here')
